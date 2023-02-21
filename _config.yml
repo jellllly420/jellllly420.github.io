@@ -39,7 +39,7 @@ social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Jelly
-  email: z2629365594@gmail.com             # change to your email address
+  email: jelly.zhao.42@gmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
     # - https://twitter.com/username      # change to your twitter homepage
@@ -54,7 +54,7 @@ google_site_verification: NtzzuUwc0Ytv6VlMXXQvPvICp557wG-7ukZnjr9LwJE          #
 # The end of `jekyll-seo-tag` settings
 
 google_analytics:
-  id:                 # fill in your Google Analytics ID
+  id: G-WWG1J3YLT0                # fill in your Google Analytics ID
   # Google Analytics pageviews report settings
   pv:
     proxy_endpoint:   # fill in the Google Analytics superProxy endpoint of Google App Engine
