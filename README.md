@@ -1,6 +1,6 @@
 # Homepage [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
 
-Built upon [Chirpy](chirpy) which is a Jekyll theme under [MIT][mit] License.
+Built upon [Chirpy][chirpy] which is a Jekyll theme under [MIT][mit] License.
 
 ## License
 
