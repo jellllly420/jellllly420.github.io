@@ -1,5 +1,5 @@
 ---
-title: Using Modules
+title: Using Go Modules
 date: 2023-02-23 04:05:00 +0800
 categories: [Notes, Golang]
 tags: [Golang, Golang Modules]
