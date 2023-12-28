@@ -6,6 +6,6 @@ order: 4
 
 Undergraduate PKU @ Peking (2020 - )
 
-Keen on PL, OS, DWeb, Cloud Native.
+Feel free to contact me via [Email](mailto:jelly.zhao.42@gmail.com).
 
-Feel free to visit my [Github Homepage](https://github.com/jellllly420) or contact me via [Email](mailto:jelly.zhao.42@gmail.com).
+You can get my valid PGP public key if you want in my [Github Profile](https://github.com/jellllly420).
