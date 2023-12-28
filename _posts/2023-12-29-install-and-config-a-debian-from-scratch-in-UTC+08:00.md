@@ -41,21 +41,21 @@ About zsh you should at least know about its [start-up files](https://zsh.source
 
 ### Github
 
-#### SSH
+- SSH
 
-Follow the instructions on [Connecting to GitHub with SSH - Github Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+  Follow the instructions on [Connecting to GitHub with SSH - Github Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
-Notice that you may encounter `Connection closed by "ip_address":"port_number"` error when you try to ssh to `git@github.com`. If that is the case, refer to [Using SSH over the HTTPS port - Github Docs](https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port) for help. This [thread](https://github.com/orgs/community/discussions/55269) tracks this issue.
+  Notice that you may encounter `Connection closed by "ip_address":"port_number"` error when you try to ssh to `git@github.com`. If that is the case, refer to [Using SSH over the HTTPS port - Github Docs](https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port) for help. This [thread](https://github.com/orgs/community/discussions/55269) tracks this issue.
 
-#### GPG
+- GPG
 
-Follow the instructions on [Managing commit signature verification - Github Docs](https://docs.github.com/en/authentication/managing-commit-signature-verification).
+  Follow the instructions on [Managing commit signature verification - Github Docs](https://docs.github.com/en/authentication/managing-commit-signature-verification).
 
 ### External Monitors
 
-#### Brightness
+- Brightness
 
-If you choose KDE Plasma as your desktop environment, you can simply follow the instructions on [davidhi7/ddcci-plasmoid: KDE Plasma Widget for external monitor brightness adjustment](https://github.com/davidhi7/ddcci-plasmoid#readme).
+  If you choose KDE Plasma as your desktop environment, you can simply follow the instructions on [davidhi7/ddcci-plasmoid: KDE Plasma Widget for external monitor brightness adjustment](https://github.com/davidhi7/ddcci-plasmoid#readme).
 
 ### Nvidia Drivers
 
