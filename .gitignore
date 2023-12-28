@@ -1,5 +1,6 @@
 # hidden files
 .*
+!.templatesyncignore
 !.git*
 !.editorconfig
 !.nojekyll
