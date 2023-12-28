@@ -1,7 +1,7 @@
 ---
 title: Install and Configure a Debian From Scratch in UTC+08:00
 date: 2023-12-29 00:11:00 +0800
-catogories: [Configuration, Linux]
+categories: [Configuration, Linux]
 tags: [Linux, Debian]
 ---
 
