@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-Undergraduate PKU @ Peking (2020 - )
+Currently a graduate student in CS at Peking University, dedicated in PL and OS.
 
 Feel free to contact me via [Email](mailto:jelly.zhao.42@gmail.com).
 

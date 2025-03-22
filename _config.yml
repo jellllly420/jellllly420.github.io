@@ -24,7 +24,7 @@ title: Jelly                        # the main title
 tagline: ¡Ay, caramba!  # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  Something meaningless.
+  Technical musings, random thoughts, and other stuff.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: https://jellllly420.github.io
@@ -43,11 +43,10 @@ social:
   links:
     # The first element serves as the copyright owner's link
     - https://github.com/jellllly420      # change to your github homepage
-    - https://www.linkedin.com/in/zejun-zhao-1b1463267/
     # - https://twitter.com/username      # change to your twitter homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/zejun-zhao-1b1463267/
 
 google_site_verification: NtzzuUwc0Ytv6VlMXXQvPvICp557wG-7ukZnjr9LwJE          # fill in to your verification string
 
@@ -116,7 +115,7 @@ assets:
     env:          # [development|production]
 
 pwa:
-  enabled: false   # the option for PWA feature
+  enabled: true   # the option for PWA feature
 
 paginate: 10
 
