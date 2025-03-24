@@ -66,7 +66,7 @@ FIXME: The externel monitor can no longer be detected once I installed the drive
 Install `telegram-desktop` either from apt or source.
 
 If you are using Firefox you may find it unable to jump to `telegram-desktop` from a `t.me/*` page. This is because the `tg` protocol not registered yet. You should follow the following instructions in order to fix this issue:
-1. [Register protocol](http://kb.mozillazine.org/Register_protocol#Linux).
+1. [Register protocol](https://kb.mozillazine.org/Register_protocol#Linux).
 2. [Set up xdg-open scheme handler](https://wiki.archlinux.org/title/Telegram#xdg-open_scheme_handler).
 
 ### Emacs
