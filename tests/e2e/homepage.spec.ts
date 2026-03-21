@@ -12,11 +12,12 @@ test.describe('Homepage', () => {
     await expect(page.locator('.timeline')).toBeVisible();
   });
 
-  test('timeline nodes are expandable', async ({ page }) => {
+  test('timeline nodes are interactive', async ({ page }) => {
     await page.goto('/');
     const node = page.locator('.timeline-node').first();
     await node.scrollIntoViewIfNeeded();
+    await expect(node).toHaveAttribute('aria-expanded', 'false');
     await node.click();
-    await expect(page.locator('.timeline-details').first()).toBeVisible();
+    await expect(node).toHaveAttribute('aria-expanded', 'true');
   });
 });

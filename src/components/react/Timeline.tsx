@@ -61,7 +61,9 @@ export default function Timeline({ entries }: Props) {
             <span className="timeline-year">{entry.year}</span>
             <h3 className="timeline-title">{entry.title}</h3>
             <p className="timeline-subtitle">{entry.subtitle}</p>
-            {expandedIndex === i && <p className="timeline-details">{entry.details}</p>}
+            {expandedIndex === i && entry.details && (
+              <p className="timeline-details">{entry.details}</p>
+            )}
           </div>
         </div>
       ))}
