@@ -95,7 +95,6 @@ date: date (required)
 tags: string[] (optional)
 excerpt: string (optional — auto-generated from first paragraph if missing)
 pinned: boolean (optional, default false — marks as featured hero card)
-cardColor: string (optional — one of: terracotta, sand, sage, slate, clay, dusk; defaults to rotation by index)
 ```
 
 ### Reading (`src/content/reading/`)
@@ -108,7 +107,6 @@ bookAuthor: string (required)
 tags: string[] (optional)
 excerpt: string (optional)
 pinned: boolean (optional)
-cardColor: string (optional)
 ```
 
 ### Travel (`src/content/travel/`)
@@ -120,7 +118,6 @@ heroImage: string (optional — path to hero image)
 tags: string[] (optional)
 excerpt: string (optional)
 pinned: boolean (optional)
-cardColor: string (optional)
 ```
 
 ### Slides (`src/content/slides/`)
@@ -131,12 +128,7 @@ date: date (required)
 slug: string (required — maps to public/slides/[slug]/)
 tags: string[] (optional)
 excerpt: string (optional)
-cardColor: string (optional)
 ```
-
-### Card Color Assignment
-
-Card background colors are assigned by **rotating through the palette by index** (terracotta → sand → sage → slate → clay → dusk → repeat). Authors can override per-post via the `cardColor` frontmatter field.
 
 ## Design System
 
@@ -158,33 +150,22 @@ Card background colors are assigned by **rotating through the palette by index**
 | Token | Value | Usage |
 |---|---|---|
 | `--bg` | `#FAF9F6` | Page background |
-| `--surface` | `#FFFFFF` | Cards, content areas |
+| `--surface` | `#FFFFFF` | Content areas (not used for cards) |
 | `--text` | `#1A1A1A` | Primary text |
 | `--text-muted` | `#6B6560` | Secondary text, dates |
 | `--accent` | `#C4642D` | Links, highlights, primary accent |
-| `--border` | `#E8E2D9` | Dividers, card borders |
+| `--border` | `#E8E2D9` | Dividers, section separators |
 
 **Dark mode:**
 
 | Token | Value | Usage |
 |---|---|---|
 | `--bg` | `#1A1A1A` | Page background |
-| `--surface` | `#2A2A28` | Cards, content areas |
+| `--surface` | `#2A2A28` | Content areas (not used for cards) |
 | `--text` | `#ECECEA` | Primary text |
 | `--text-muted` | `#A8A29E` | Secondary text, dates |
 | `--accent` | `#E07A3A` | Links, highlights, primary accent |
-| `--border` | `#333330` | Dividers, card borders |
-
-**Card background palette (used for card top areas):**
-
-| Name | Value |
-|---|---|
-| terracotta | `#C4642D` |
-| sand | `#D4A574` |
-| sage | `#7D8B6E` |
-| slate | `#6B7B8D` |
-| clay | `#B07856` |
-| dusk | `#8B6F7E` |
+| `--border` | `#333330` | Dividers, section separators |
 
 ### Theme Switching
 
@@ -197,7 +178,7 @@ Card background colors are assigned by **rotating through the palette by index**
 
 - **Page load:** Fade-in (opacity 0→1) + subtle upward translate (8px), 300ms ease-out
 - **Scroll reveals:** IntersectionObserver triggers fade-in as elements enter viewport
-- **Hover states:** Color transitions (150ms), cards lift with soft shadow on hover
+- **Hover states:** Color transitions (150ms), cards lift subtly on hover
 - **Reduced motion:** All animations respect `prefers-reduced-motion: reduce`
 
 ## Page Designs
@@ -229,11 +210,12 @@ Card background colors are assigned by **rotating through the palette by index**
 ### Listing Pages (`/blog/`, `/reading/`, `/travel/`, `/slides/`)
 
 - **Page header:** Section title + tagline
-- **Hero/featured card:** Large card for the latest or pinned post, terracotta background, two-column layout (text left, visual right)
-- **Card grid:** 3-column grid of near-square cards (`aspect-ratio: 1 / 1.05`)
-  - Colored top area (from card palette) with placeholder art or category icon
-  - White body area with: category tag, title (2-line clamp), excerpt (2-line clamp), date
-  - Hover: lift + soft shadow
+- **Featured post:** Larger text treatment for the latest or pinned post — accent-colored tag pill, larger title, excerpt, date. No background, no border — just prominent typography.
+- **Card grid:** 3-column grid of borderless text-forward cards
+  - Each card: accent-colored category tag → title → excerpt → date
+  - No borders, no backgrounds, no colored areas — cards float on the page background in both light and dark modes
+  - Spacing and typography define card boundaries
+  - Hover: subtle upward lift
 - **Container:** Centered, `max-width: 1280px`
 - Responsive: 2 columns on tablet, 1 on mobile
 
