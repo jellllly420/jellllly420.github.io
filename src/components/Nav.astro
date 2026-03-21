@@ -1,0 +1,48 @@
+---
+import ThemeToggle from '@/components/react/ThemeToggle';
+import MobileMenu from '@/components/react/MobileMenu';
+
+const navLinks = [
+  { href: '/blog', label: 'Blog' },
+  { href: '/reading', label: 'Reading' },
+  { href: '/travel', label: 'Travel' },
+  { href: '/slides', label: 'Slides' },
+  { href: '/about', label: 'About' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="nav-header">
+  <div class="nav-container">
+    <a href="/" class="nav-brand">Jelly</a>
+
+    <!-- Desktop nav -->
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        {navLinks.map((link) => {
+          const isActive =
+            link.href === '/'
+              ? currentPath === '/'
+              : currentPath.startsWith(link.href);
+          return (
+            <li>
+              <a href={link.href} aria-current={isActive ? 'page' : undefined}>
+                {link.label}
+              </a>
+            </li>
+          );
+        })}
+        <li>
+          <ThemeToggle client:load />
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Mobile nav -->
+    <div class="nav-mobile">
+      <ThemeToggle client:load />
+      <MobileMenu client:load links={navLinks} currentPath={currentPath} />
+    </div>
+  </div>
+</header>
