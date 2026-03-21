@@ -34,6 +34,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Sticky footer — push footer to bottom when content is short */
+body.page {
+  display: flex;
+  flex-direction: column;
+}
+
+body.page main {
+  flex: 1;
+}
+
 img,
 picture,
 video,
