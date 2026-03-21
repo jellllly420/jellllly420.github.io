@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import ListingLayout from '@/layouts/ListingLayout.astro';
+import CardGrid from '@/components/CardGrid.astro';
+import Card from '@/components/Card.astro';
+import { sortByDate } from '@/utils/content';
+
+const decks = await getCollection('slides');
+const sorted = sortByDate(decks);
+---
+
+<ListingLayout title="Slides" tagline="Talks and presentations.">
+  <CardGrid>
+    {sorted.map((deck) => (
+      <Card
+        title={deck.data.title}
+        href={`/slides/${deck.data.slug}/`}
+        date={deck.data.date}
+        tag={deck.data.tags?.[0]}
+        excerpt={deck.data.excerpt}
+      />
+    ))}
+  </CardGrid>
+</ListingLayout>

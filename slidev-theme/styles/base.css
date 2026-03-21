@@ -1,0 +1,32 @@
+:root {
+  --slidev-theme-primary: #C4642D;
+  --slidev-theme-bg: #FAF9F6;
+  --slidev-theme-text: #1A1A1A;
+}
+
+.dark {
+  --slidev-theme-primary: #E07A3A;
+  --slidev-theme-bg: #1A1A1A;
+  --slidev-theme-text: #ECECEA;
+}
+
+.slidev-layout {
+  background: var(--slidev-theme-bg);
+  color: var(--slidev-theme-text);
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  color: var(--slidev-theme-text);
+}
+
+.slidev-layout a {
+  color: var(--slidev-theme-primary);
+}
+
+.slidev-layout code {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-ligatures: none;
+}

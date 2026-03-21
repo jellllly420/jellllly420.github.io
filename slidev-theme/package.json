@@ -1,0 +1,13 @@
+{
+  "name": "slidev-theme-jelly",
+  "version": "0.1.0",
+  "slidev": {
+    "colorSchema": "both",
+    "defaults": {
+      "fonts": {
+        "sans": "DM Sans",
+        "mono": "JetBrains Mono"
+      }
+    }
+  }
+}
