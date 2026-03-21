@@ -5,19 +5,19 @@ import CardGrid from '@/components/CardGrid.astro';
 import Card from '@/components/Card.astro';
 import { sortByDate } from '@/utils/content';
 
-const posts = await getCollection('reading');
+const posts = await getCollection('shelf');
 const sorted = sortByDate(posts);
 ---
 
-<ListingLayout title="Reading" tagline="Notes on books and papers.">
+<ListingLayout title="Shelf" tagline="Books, movies, and other media.">
   <CardGrid>
     {
       sorted.map((post) => (
         <Card
           title={post.data.title}
-          href={`/reading/${post.id}`}
+          href={`/shelf/${post.id}`}
           date={post.data.date}
-          tag={post.data.bookAuthor}
+          tag={post.data.mediaType}
           excerpt={post.data.excerpt}
         />
       ))

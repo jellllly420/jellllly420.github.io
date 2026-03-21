@@ -13,13 +13,14 @@ const blog = defineCollection({
   }),
 });
 
-const reading = defineCollection({
-  loader: glob({ base: './src/content/reading', pattern: '**/*.{md,mdx}' }),
+const shelf = defineCollection({
+  loader: glob({ base: './src/content/shelf', pattern: '**/*.{md,mdx}' }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
-    bookTitle: z.string(),
-    bookAuthor: z.string(),
+    mediaType: z.enum(['book', 'movie', 'show', 'podcast', 'article']).default('book'),
+    mediaTitle: z.string(),
+    mediaAuthor: z.string(),
     tags: z.array(z.string()).optional().default([]),
     excerpt: z.string().optional(),
     pinned: z.boolean().optional().default(false),
@@ -49,4 +50,4 @@ const slides = defineCollection({
   }),
 });
 
-export const collections = { blog, reading, travel, slides };
+export const collections = { blog, shelf, travel, slides };

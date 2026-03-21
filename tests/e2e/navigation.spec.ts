@@ -9,9 +9,9 @@ test.describe('Navigation', () => {
     await expect(page).toHaveURL(/\/blog\/?$/);
     await expect(page.locator('h1')).toHaveText('Blog');
 
-    await page.click('a[href="/reading"]');
-    await expect(page).toHaveURL(/\/reading\/?$/);
-    await expect(page.locator('h1')).toHaveText('Reading');
+    await page.click('a[href="/shelf"]');
+    await expect(page).toHaveURL(/\/shelf\/?$/);
+    await expect(page.locator('h1')).toHaveText('Shelf');
 
     await page.click('a[href="/travel"]');
     await expect(page).toHaveURL(/\/travel\/?$/);
