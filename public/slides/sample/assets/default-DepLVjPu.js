@@ -1,1 +1,0 @@
-import{o as t,e as o,i as s}from"./modules/vue-CA2rmDoU.js";import{u as a}from"./slidev/context-B47ohFrf.js";import{_ as r}from"./index-Cz6K2NQK.js";const d={class:"slidev-layout default"},n={__name:"default",setup(_){return a(),(e,c)=>(t(),o("div",d,[s(e.$slots,"default",{},void 0,!0)]))}},p=r(n,[["__scopeId","data-v-5680402d"]]);export{p as I};
