@@ -19,6 +19,8 @@
     "@astrojs/mdx": "^4.0.0",
     "@astrojs/react": "^4.0.0",
     "@astrojs/sitemap": "^3.0.0",
+    "@fontsource/dm-sans": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
     "astro": "^5.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
