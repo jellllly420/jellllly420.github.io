@@ -1,0 +1,66 @@
+---
+interface Props {
+  type?: 'info' | 'warning' | 'tip';
+}
+
+const { type = 'info' } = Astro.props;
+
+const labels: Record<string, string> = {
+  info: 'ℹ Info',
+  warning: '⚠ Warning',
+  tip: '💡 Tip',
+};
+
+const label = labels[type];
+---
+
+<aside class={`callout callout-${type}`}>
+  <span class="callout-label">{label}</span>
+  <div class="callout-body">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  .callout {
+    border-left: 4px solid var(--accent);
+    background-color: var(--accent-subtle);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: var(--space-4) var(--space-5);
+    margin-block: var(--space-4);
+  }
+
+  .callout-label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin-bottom: var(--space-2);
+    color: var(--accent);
+  }
+
+  .callout-body {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  /* Warning variant */
+  .callout-warning {
+    border-left-color: #d97706;
+    background-color: rgba(217, 119, 6, 0.08);
+  }
+
+  .callout-warning .callout-label {
+    color: #d97706;
+  }
+
+  /* Tip variant */
+  .callout-tip {
+    border-left-color: #059669;
+    background-color: rgba(5, 150, 105, 0.08);
+  }
+
+  .callout-tip .callout-label {
+    color: #059669;
+  }
+</style>

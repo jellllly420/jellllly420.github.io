@@ -1,0 +1,131 @@
+---
+interface Props {
+  filename?: string;
+}
+
+const { filename } = Astro.props;
+---
+
+<div class="code-block-wrapper">
+  {filename && (
+    <div class="code-block-header">
+      <span class="code-block-filename">{filename}</span>
+    </div>
+  )}
+  <div class="code-block-body">
+    <button class="code-copy-btn" data-copy aria-label="Copy code">
+      <!-- Clipboard icon -->
+      <svg class="icon-copy" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <!-- Checkmark icon -->
+      <svg class="icon-check" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: none;">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </button>
+    <slot />
+  </div>
+</div>
+
+<style>
+  .code-block-wrapper {
+    position: relative;
+    margin-block: var(--space-4);
+  }
+
+  .code-block-header {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-bottom: none;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono, monospace);
+    transition:
+      background-color var(--transition-base),
+      border-color var(--transition-base);
+  }
+
+  .code-block-header + .code-block-body :global(pre) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .code-block-body {
+    position: relative;
+  }
+
+  .code-copy-btn {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background-color: var(--bg);
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition:
+      opacity var(--transition-base),
+      background-color var(--transition-base),
+      color var(--transition-base),
+      border-color var(--transition-base);
+    z-index: 2;
+  }
+
+  .code-block-body:hover .code-copy-btn {
+    opacity: 1;
+  }
+
+  .code-copy-btn:hover {
+    background-color: var(--accent-subtle);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .code-copy-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    opacity: 1;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const wrapper = btn.closest('.code-block-body');
+      if (!wrapper) return;
+
+      const pre = wrapper.querySelector('pre');
+      if (!pre) return;
+
+      const text = pre.textContent ?? '';
+
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        return;
+      }
+
+      const iconCopy = btn.querySelector<SVGElement>('.icon-copy');
+      const iconCheck = btn.querySelector<SVGElement>('.icon-check');
+
+      if (iconCopy && iconCheck) {
+        iconCopy.style.display = 'none';
+        iconCheck.style.display = 'block';
+
+        setTimeout(() => {
+          iconCopy.style.display = 'block';
+          iconCheck.style.display = 'none';
+        }, 2000);
+      }
+    });
+  });
+</script>

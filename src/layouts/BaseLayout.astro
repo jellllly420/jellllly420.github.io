@@ -1,6 +1,7 @@
 ---
 import Nav from '@/components/Nav.astro';
 import Footer from '@/components/Footer.astro';
+import Lightbox from '@/components/react/Lightbox';
 import '@/styles/global.css';
 
 interface Props {
@@ -46,6 +47,7 @@ const {
       <slot />
     </main>
     <Footer />
+    <Lightbox client:idle />
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const revealEls = document.querySelectorAll('.scroll-reveal');
