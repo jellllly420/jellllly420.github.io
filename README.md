@@ -72,39 +72,43 @@ npm run lint && npm run check && npm test && npm run build && npm run test:e2e
 ## Adding Content
 
 **Blog post** — create `src/content/blog/<slug>.mdx`:
+
 ```yaml
 ---
-title: "Post Title"
+title: 'Post Title'
 date: 2026-03-21
-tags: ["tag"]
-excerpt: "One-line summary."
+tags: ['tag']
+excerpt: 'One-line summary.'
 ---
 ```
 
 **Shelf entry** — create `src/content/shelf/<slug>.mdx`:
+
 ```yaml
 ---
-title: "Review Title"
+title: 'Review Title'
 date: 2026-03-21
-mediaType: book  # book | movie | show | podcast | article
-mediaTitle: "Media Name"
-mediaAuthor: "Author/Director"
-tags: ["tag"]
-excerpt: "Brief take."
+mediaType: book # book | movie | show | podcast | article
+mediaTitle: 'Media Name'
+mediaAuthor: 'Author/Director'
+tags: ['tag']
+excerpt: 'Brief take.'
 ---
 ```
 
 **Travel log** — create `src/content/travel/<slug>.mdx`:
+
 ```yaml
 ---
-title: "Trip Title"
+title: 'Trip Title'
 date: 2026-03-21
-tags: ["place"]
-excerpt: "Brief summary."
+tags: ['place']
+excerpt: 'Brief summary.'
 ---
 ```
 
 **Slide deck:**
+
 1. Create `slides/<slug>/slides.md` (Slidev format)
 2. Add metadata in `src/content/slides/<slug>.mdx` with `slug: "<slug>"`
 3. `npm run build:slides` to generate static HTML
