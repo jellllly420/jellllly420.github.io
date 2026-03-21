@@ -1,0 +1,78 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+const filtered = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{filtered.length > 0 && (
+  <aside class="toc">
+    <p class="toc-label">On this page</p>
+    <ul class="toc-list">
+      {filtered.map((heading) => (
+        <li class:list={['toc-item', { 'toc-item--h3': heading.depth === 3 }]}>
+          <a href={`#${heading.slug}`} class="toc-link">{heading.text}</a>
+        </li>
+      ))}
+    </ul>
+  </aside>
+)}
+
+<style>
+  .toc {
+    position: sticky;
+    top: 5rem;
+  }
+
+  .toc-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    transition: color var(--transition-base);
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc-item {
+    margin-bottom: 0.4rem;
+  }
+
+  .toc-item--h3 {
+    padding-left: 1rem;
+  }
+
+  .toc-link {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    line-height: 1.5;
+    transition: color var(--transition-base);
+    display: block;
+  }
+
+  .toc-link:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  @media (max-width: 1200px) {
+    .toc {
+      display: none;
+    }
+  }
+</style>

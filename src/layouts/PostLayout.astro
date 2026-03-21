@@ -1,0 +1,93 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PostHeader from '@/components/PostHeader.astro';
+import PostNav from '@/components/PostNav.astro';
+import TableOfContents from '@/components/TableOfContents.astro';
+
+interface NavItem {
+  slug: string;
+  title: string;
+  basePath: string;
+}
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  date: Date;
+  tags?: string[];
+  bookTitle?: string;
+  bookAuthor?: string;
+  heroImage?: string;
+  headings?: Heading[];
+  prev?: NavItem;
+  next?: NavItem;
+}
+
+const {
+  title,
+  date,
+  tags,
+  bookTitle,
+  bookAuthor,
+  heroImage,
+  headings = [],
+  prev,
+  next,
+} = Astro.props;
+---
+
+<BaseLayout title={title}>
+  <div class="post-layout container">
+    <article class="post-article">
+      <PostHeader
+        title={title}
+        date={date}
+        tags={tags}
+        bookTitle={bookTitle}
+        bookAuthor={bookAuthor}
+        heroImage={heroImage}
+      />
+      <div class="prose">
+        <slot />
+      </div>
+      <PostNav prev={prev} next={next} />
+    </article>
+    <div class="toc-sidebar">
+      <TableOfContents headings={headings} />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .post-layout {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 3rem;
+    align-items: start;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  .post-article {
+    min-width: 0;
+  }
+
+  .toc-sidebar {
+    padding-top: 3rem;
+  }
+
+  @media (max-width: 1200px) {
+    .post-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .toc-sidebar {
+      display: none;
+    }
+  }
+</style>

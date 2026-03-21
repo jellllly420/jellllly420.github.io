@@ -1,0 +1,100 @@
+---
+import { formatDate } from '@/utils/date';
+
+interface Props {
+  title: string;
+  date: Date;
+  tags?: string[];
+  bookTitle?: string;
+  bookAuthor?: string;
+  heroImage?: string;
+}
+
+const { title, date, tags, bookTitle, bookAuthor, heroImage } = Astro.props;
+---
+
+<header class="post-header">
+  {tags && tags.length > 0 && (
+    <div class="tag-list">
+      {tags.map((tag) => (
+        <span class="tag-pill">{tag}</span>
+      ))}
+    </div>
+  )}
+  <h1 class="post-title">{title}</h1>
+  {bookTitle && (
+    <p class="book-info">
+      <span class="book-label">Notes on</span>
+      <em>{bookTitle}</em>
+      {bookAuthor && <span class="book-author"> by {bookAuthor}</span>}
+    </p>
+  )}
+  <time class="post-date" datetime={date.toISOString()}>{formatDate(date)}</time>
+  {heroImage && (
+    <img class="hero-image" src={heroImage} alt="" />
+  )}
+</header>
+
+<style>
+  .post-header {
+    max-width: 720px;
+    margin-inline: auto;
+    padding: 3rem 0 2rem;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag-pill {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background-color: var(--accent-subtle);
+    border-radius: 999px;
+    padding: 0.2em 0.75em;
+    transition: background-color var(--transition-base);
+  }
+
+  .post-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    transition: color var(--transition-base);
+  }
+
+  .book-info {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    transition: color var(--transition-base);
+  }
+
+  .book-label {
+    margin-right: 0.25rem;
+  }
+
+  .book-author {
+    color: var(--text-muted);
+  }
+
+  .post-date {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    transition: color var(--transition-base);
+  }
+
+  .hero-image {
+    width: 100%;
+    border-radius: var(--radius-md);
+    margin-top: 1.5rem;
+  }
+</style>

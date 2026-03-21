@@ -1,0 +1,86 @@
+---
+interface NavItem {
+  slug: string;
+  title: string;
+  basePath: string;
+}
+
+interface Props {
+  prev?: NavItem;
+  next?: NavItem;
+}
+
+const { prev, next } = Astro.props;
+---
+
+{(prev || next) && (
+  <nav class="post-nav" aria-label="Post navigation">
+    <div class="post-nav-grid">
+      <div class="post-nav-item post-nav-prev">
+        {prev && (
+          <a href={`${prev.basePath}/${prev.slug}`}>
+            <span class="post-nav-label">Previous</span>
+            <span class="post-nav-title">{prev.title}</span>
+          </a>
+        )}
+      </div>
+      <div class="post-nav-item post-nav-next">
+        {next && (
+          <a href={`${next.basePath}/${next.slug}`}>
+            <span class="post-nav-label">Next</span>
+            <span class="post-nav-title">{next.title}</span>
+          </a>
+        )}
+      </div>
+    </div>
+  </nav>
+)}
+
+<style>
+  .post-nav {
+    max-width: 720px;
+    margin-inline: auto;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    margin-top: 3rem;
+    transition: border-color var(--transition-base);
+  }
+
+  .post-nav-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .post-nav-item a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    text-decoration: none;
+  }
+
+  .post-nav-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    transition: color var(--transition-base);
+  }
+
+  .post-nav-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1.4;
+    transition: color var(--transition-base);
+  }
+
+  .post-nav-title:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+  }
+
+  .post-nav-next {
+    text-align: right;
+  }
+</style>

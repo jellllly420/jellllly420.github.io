@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import ListingLayout from '@/layouts/ListingLayout.astro';
+import FeaturedPost from '@/components/FeaturedPost.astro';
+import CardGrid from '@/components/CardGrid.astro';
+import Card from '@/components/Card.astro';
+import { sortByDate, getFeaturedPost } from '@/utils/content';
+
+const posts = await getCollection('blog');
+const sorted = sortByDate(posts);
+const featured = getFeaturedPost(posts);
+const rest = sorted.filter((p) => p.id !== featured.id);
+---
+
+<ListingLayout title="Blog" tagline="Technical musings, random thoughts, and other stuff.">
+  <FeaturedPost
+    title={featured.data.title}
+    href={`/blog/${featured.id}`}
+    date={featured.data.date}
+    tag={featured.data.tags?.[0]}
+    excerpt={featured.data.excerpt}
+  />
+  <div style="height: 1px; background: var(--border); margin-bottom: 2rem;" />
+  <CardGrid>
+    {rest.map((post) => (
+      <Card
+        title={post.data.title}
+        href={`/blog/${post.id}`}
+        date={post.data.date}
+        tag={post.data.tags?.[0]}
+        excerpt={post.data.excerpt}
+      />
+    ))}
+  </CardGrid>
+</ListingLayout>
