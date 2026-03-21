@@ -62,7 +62,7 @@ jellllly420.github.io/
 │   │   │   ├── index.astro  # Travel logs listing
 │   │   │   └── [slug].astro # Individual travel log
 │   │   └── slides/
-│   │       └── index.astro  # Slides gallery
+│   │       └── index.astro  # Slides gallery (decks served from public/ as raw static HTML)
 │   └── styles/              # Global CSS, theme variables, typography
 │       ├── global.css       # Reset, base styles, animations
 │       ├── theme.css        # CSS custom properties (light/dark)
@@ -84,6 +84,59 @@ jellllly420.github.io/
     └── workflows/
         └── deploy.yml       # Build + test + deploy pipeline
 ```
+
+## Content Collection Schemas
+
+### Blog (`src/content/blog/`)
+
+```yaml
+title: string (required)
+date: date (required)
+tags: string[] (optional)
+excerpt: string (optional — auto-generated from first paragraph if missing)
+pinned: boolean (optional, default false — marks as featured hero card)
+cardColor: string (optional — one of: terracotta, sand, sage, slate, clay, dusk; defaults to rotation by index)
+```
+
+### Reading (`src/content/reading/`)
+
+```yaml
+title: string (required)
+date: date (required)
+bookTitle: string (required)
+bookAuthor: string (required)
+tags: string[] (optional)
+excerpt: string (optional)
+pinned: boolean (optional)
+cardColor: string (optional)
+```
+
+### Travel (`src/content/travel/`)
+
+```yaml
+title: string (required)
+date: date (required)
+heroImage: string (optional — path to hero image)
+tags: string[] (optional)
+excerpt: string (optional)
+pinned: boolean (optional)
+cardColor: string (optional)
+```
+
+### Slides (`src/content/slides/`)
+
+```yaml
+title: string (required)
+date: date (required)
+slug: string (required — maps to public/slides/[slug]/)
+tags: string[] (optional)
+excerpt: string (optional)
+cardColor: string (optional)
+```
+
+### Card Color Assignment
+
+Card background colors are assigned by **rotating through the palette by index** (terracotta → sand → sage → slate → clay → dusk → repeat). Authors can override per-post via the `cardColor` frontmatter field.
 
 ## Design System
 
@@ -157,6 +210,12 @@ jellllly420.github.io/
 - Collapses to hamburger menu on mobile
 - Subtle bottom border, transparent/matching background
 
+### About (`/about/`)
+
+- Brief personal narrative / bio
+- Links to GitHub, LinkedIn, email
+- Minimal page — could expand later
+
 ### Homepage (`/`)
 
 - **Hero section:** Name "Jelly", one-liner tagline, subtle entrance animation
@@ -207,6 +266,7 @@ jellllly420.github.io/
 
 - Card grid listing of available slide decks (same grid as other sections)
 - Each deck links to `/slides/[slug]/` serving pre-built Slidev static HTML
+- Slidev static exports live in `public/slides/[slug]/` and are served directly by Astro (no `.astro` page wrapper) — they use Slidev's own navigation and the custom theme provides visual consistency
 - Slidev decks authored in Markdown with a custom theme matching the site aesthetic
 
 ## Slides Integration
