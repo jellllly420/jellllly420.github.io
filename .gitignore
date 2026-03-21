@@ -2,6 +2,7 @@ node_modules/
 dist/
 .astro/
 .superpowers/
+.claude/
 *.env
 .DS_Store
 test-results/
