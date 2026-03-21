@@ -370,7 +370,7 @@ a:focus-visible {
   width: 32px;
   height: 32px;
   border-radius: var(--radius-full);
-  border: 1px solid var(--border);
+  border: none;
   background-color: transparent;
   color: var(--text);
   cursor: pointer;
@@ -386,7 +386,6 @@ a:focus-visible {
 
 .theme-toggle:hover {
   background-color: var(--accent-subtle);
-  border-color: var(--accent);
   color: var(--accent);
 }
 
