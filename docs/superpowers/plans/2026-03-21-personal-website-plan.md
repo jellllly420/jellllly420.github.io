@@ -160,7 +160,7 @@ export default defineConfig({
   integrations: [react(), mdx(), sitemap()],
   markdown: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex, [rehypeMermaid, { strategy: 'inline-svg' }]],
+    rehypePlugins: [rehypeKatex, [rehypeMermaid, { strategy: 'pre-mermaid' }]],
     shikiConfig: {
       themes: {
         light: 'github-light',
