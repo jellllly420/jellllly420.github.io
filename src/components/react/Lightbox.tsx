@@ -12,10 +12,7 @@ export default function Lightbox() {
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (
-        target.tagName === 'IMG' &&
-        target.closest('.prose') !== null
-      ) {
+      if (target.tagName === 'IMG' && target.closest('.prose') !== null) {
         const img = target as HTMLImageElement;
         setSrc(img.src);
         setAlt(img.alt ?? '');
@@ -47,11 +44,7 @@ export default function Lightbox() {
       aria-modal="true"
       aria-label="Image lightbox"
     >
-      <button
-        className="lightbox-close"
-        onClick={close}
-        aria-label="Close lightbox"
-      >
+      <button className="lightbox-close" onClick={close} aria-label="Close lightbox">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -68,12 +61,7 @@ export default function Lightbox() {
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       </button>
-      <img
-        className="lightbox-image"
-        src={src}
-        alt={alt}
-        onClick={(e) => e.stopPropagation()}
-      />
+      <img className="lightbox-image" src={src} alt={alt} onClick={(e) => e.stopPropagation()} />
     </div>
   );
 }

@@ -16,9 +16,9 @@ describe('content utils', () => {
   describe('sortByDate', () => {
     it('sorts posts newest first', () => {
       const sorted = sortByDate(mockPosts);
-      expect(sorted[0].data.title).toBe('New');
-      expect(sorted[1].data.title).toBe('Mid');
-      expect(sorted[2].data.title).toBe('Old');
+      expect(sorted[0]!.data.title).toBe('New');
+      expect(sorted[1]!.data.title).toBe('Mid');
+      expect(sorted[2]!.data.title).toBe('Old');
     });
   });
 

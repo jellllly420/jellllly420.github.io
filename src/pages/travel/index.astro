@@ -20,16 +20,18 @@ const rest = sorted.filter((p) => p.id !== featured.id);
     tag={featured.data.tags?.[0]}
     excerpt={featured.data.excerpt}
   />
-  <div style="height: 1px; background: var(--border); margin-bottom: 2rem;" />
+  <div style="height: 1px; background: var(--border); margin-bottom: 2rem;"></div>
   <CardGrid>
-    {rest.map((post) => (
-      <Card
-        title={post.data.title}
-        href={`/travel/${post.id}`}
-        date={post.data.date}
-        tag={post.data.tags?.[0]}
-        excerpt={post.data.excerpt}
-      />
-    ))}
+    {
+      rest.map((post) => (
+        <Card
+          title={post.data.title}
+          href={`/travel/${post.id}`}
+          date={post.data.date}
+          tag={post.data.tags?.[0]}
+          excerpt={post.data.excerpt}
+        />
+      ))
+    }
   </CardGrid>
 </ListingLayout>

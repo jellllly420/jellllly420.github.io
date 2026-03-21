@@ -44,10 +44,14 @@ export default function Timeline({ entries }: Props) {
       {entries.map((entry, i) => (
         <div
           key={i}
-          ref={(el) => { nodeRefs.current[i] = el; }}
+          ref={(el) => {
+            nodeRefs.current[i] = el;
+          }}
           className={`timeline-node scroll-reveal ${i % 2 === 0 ? 'left' : 'right'}`}
           onClick={() => toggle(i)}
-          onKeyDown={(e) => { if (e.key === 'Enter') toggle(i); }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') toggle(i);
+          }}
           role="button"
           tabIndex={0}
           aria-expanded={expandedIndex === i}
@@ -57,9 +61,7 @@ export default function Timeline({ entries }: Props) {
             <span className="timeline-year">{entry.year}</span>
             <h3 className="timeline-title">{entry.title}</h3>
             <p className="timeline-subtitle">{entry.subtitle}</p>
-            {expandedIndex === i && (
-              <p className="timeline-details">{entry.details}</p>
-            )}
+            {expandedIndex === i && <p className="timeline-details">{entry.details}</p>}
           </div>
         </div>
       ))}

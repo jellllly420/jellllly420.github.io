@@ -14,25 +14,27 @@ const { title, date, tags, bookTitle, bookAuthor, heroImage } = Astro.props;
 ---
 
 <header class="post-header">
-  {tags && tags.length > 0 && (
-    <div class="tag-list">
-      {tags.map((tag) => (
-        <span class="tag-pill">{tag}</span>
-      ))}
-    </div>
-  )}
+  {
+    tags && tags.length > 0 && (
+      <div class="tag-list">
+        {tags.map((tag) => (
+          <span class="tag-pill">{tag}</span>
+        ))}
+      </div>
+    )
+  }
   <h1 class="post-title">{title}</h1>
-  {bookTitle && (
-    <p class="book-info">
-      <span class="book-label">Notes on</span>
-      <em>{bookTitle}</em>
-      {bookAuthor && <span class="book-author"> by {bookAuthor}</span>}
-    </p>
-  )}
+  {
+    bookTitle && (
+      <p class="book-info">
+        <span class="book-label">Notes on</span>
+        <em>{bookTitle}</em>
+        {bookAuthor && <span class="book-author"> by {bookAuthor}</span>}
+      </p>
+    )
+  }
   <time class="post-date" datetime={date.toISOString()}>{formatDate(date)}</time>
-  {heroImage && (
-    <img class="hero-image" src={heroImage} alt="" />
-  )}
+  {heroImage && <img class="hero-image" src={heroImage} alt="" />}
 </header>
 
 <style>

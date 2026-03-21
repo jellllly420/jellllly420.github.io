@@ -116,11 +116,13 @@ tests/e2e/homepage.spec.ts           — E2E: hero + timeline
 ## Task 1: Project Scaffolding & Tooling
 
 **Files:**
+
 - Create: `package.json`, `astro.config.ts`, `tsconfig.json`, `.eslintrc.cjs`, `.prettierrc`, `.prettierignore`, `.gitignore`, `vitest.config.ts`, `playwright.config.ts`
 
 - [ ] **Step 1: Initialize Astro project**
 
 Run:
+
 ```bash
 cd /workspaces/jellllly420.github.io
 npm create astro@latest -- --template minimal --no-install --typescript strictest .
@@ -131,6 +133,7 @@ This creates a minimal Astro project in the current directory. Say yes to overwr
 - [ ] **Step 2: Install core dependencies**
 
 Run:
+
 ```bash
 npm install astro @astrojs/react @astrojs/mdx @astrojs/sitemap react react-dom remark-math rehype-katex rehype-mermaid
 ```
@@ -138,6 +141,7 @@ npm install astro @astrojs/react @astrojs/mdx @astrojs/sitemap react react-dom r
 - [ ] **Step 3: Install dev dependencies**
 
 Run:
+
 ```bash
 npm install -D typescript @types/react @types/react-dom vitest @testing-library/react @testing-library/jest-dom jsdom eslint eslint-plugin-astro @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier prettier-plugin-astro @playwright/test
 ```
@@ -327,6 +331,7 @@ Add to the `"scripts"` section of `package.json`:
 - [ ] **Step 12: Install Playwright browsers**
 
 Run:
+
 ```bash
 npx playwright install --with-deps chromium
 ```
@@ -334,6 +339,7 @@ npx playwright install --with-deps chromium
 - [ ] **Step 13: Verify setup builds**
 
 Run:
+
 ```bash
 npm run build
 ```
@@ -352,12 +358,14 @@ git commit -m "feat: scaffold Astro project with React, MDX, tooling"
 ## Task 2: Design System — Fonts & CSS
 
 **Files:**
+
 - Create: `src/styles/theme.css`, `src/styles/typography.css`, `src/styles/global.css`
 - Create: `public/fonts/` (font files), `public/favicon.svg`
 
 - [ ] **Step 1: Download DM Sans font files**
 
 Run:
+
 ```bash
 mkdir -p public/fonts
 # Download DM Sans woff2 files from Google Fonts
@@ -370,6 +378,7 @@ curl -L "https://fonts.gstatic.com/s/dmsans/v15/rP2tp2ywxg089UriI5-g4vlH9VoD8Cmc
 - [ ] **Step 2: Download JetBrains Mono font files**
 
 Run:
+
 ```bash
 curl -L "https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxTOlOTk6OThhvA.woff2" -o public/fonts/JetBrainsMono-Regular.woff2
 curl -L "https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxTPlOTk6OThhvA.woff2" -o public/fonts/JetBrainsMono-Medium.woff2
@@ -440,24 +449,52 @@ Write `src/styles/typography.css`:
 }
 
 body {
-  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-family:
+    'DM Sans',
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.7;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:
+    'DM Sans',
+    system-ui,
+    -apple-system,
+    sans-serif;
   line-height: 1.25;
   letter-spacing: -0.02em;
 }
 
-h1 { font-size: 2.5rem; font-weight: 700; }
-h2 { font-size: 1.75rem; font-weight: 700; }
-h3 { font-size: 1.25rem; font-weight: 600; }
-h4 { font-size: 1.1rem; font-weight: 600; }
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
 
-code, pre, kbd, samp {
+code,
+pre,
+kbd,
+samp {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-variant-ligatures: none;
   font-size: 0.9rem;
@@ -471,22 +508,22 @@ Write `src/styles/theme.css`:
 ```css
 :root,
 [data-theme='light'] {
-  --bg: #FAF9F6;
-  --surface: #FFFFFF;
-  --text: #1A1A1A;
-  --text-muted: #6B6560;
-  --accent: #C4642D;
+  --bg: #faf9f6;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #6b6560;
+  --accent: #c4642d;
   --accent-subtle: rgba(196, 100, 45, 0.08);
-  --border: #E8E2D9;
+  --border: #e8e2d9;
   color-scheme: light;
 }
 
 [data-theme='dark'] {
-  --bg: #1A1A1A;
-  --surface: #2A2A28;
-  --text: #ECECEA;
-  --text-muted: #A8A29E;
-  --accent: #E07A3A;
+  --bg: #1a1a1a;
+  --surface: #2a2a28;
+  --text: #ececea;
+  --text-muted: #a8a29e;
+  --accent: #e07a3a;
   --accent-subtle: rgba(224, 122, 58, 0.1);
   --border: #333330;
   color-scheme: dark;
@@ -517,7 +554,9 @@ body {
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 }
 
 a {
@@ -561,7 +600,8 @@ img {
   margin-top: 2rem;
 }
 
-.prose ul, .prose ol {
+.prose ul,
+.prose ol {
   padding-left: 1.5rem;
 }
 
@@ -611,7 +651,9 @@ img {
 .scroll-reveal {
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
 }
 
 .scroll-reveal.visible {
@@ -637,6 +679,7 @@ img {
 - [ ] **Step 7: Verify lint passes**
 
 Run:
+
 ```bash
 npm run lint
 ```
@@ -655,6 +698,7 @@ git commit -m "feat: add design system — DM Sans, JetBrains Mono, theme tokens
 ## Task 3: Theme Toggle Logic (TDD)
 
 **Files:**
+
 - Create: `src/utils/theme.ts`, `src/utils/__tests__/theme.test.ts`
 - Create: `src/components/react/ThemeToggle.tsx`
 
@@ -716,6 +760,7 @@ describe('theme utils', () => {
 - [ ] **Step 2: Run tests to verify they fail**
 
 Run:
+
 ```bash
 npx vitest run src/utils/__tests__/theme.test.ts
 ```
@@ -752,6 +797,7 @@ export function applyTheme(theme: Theme): void {
 - [ ] **Step 4: Run tests to verify they pass**
 
 Run:
+
 ```bash
 npx vitest run src/utils/__tests__/theme.test.ts
 ```
@@ -792,11 +838,29 @@ export default function ThemeToggle() {
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
       {theme === 'light' ? (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       ) : (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <circle cx="12" cy="12" r="5" />
           <line x1="12" y1="1" x2="12" y2="3" />
           <line x1="12" y1="21" x2="12" y2="23" />
@@ -825,6 +889,7 @@ git commit -m "feat: add theme toggle with TDD — localStorage persistence, OS 
 ## Task 4: Base Layout & Navigation
 
 **Files:**
+
 - Create: `src/layouts/BaseLayout.astro`, `src/components/Nav.astro`, `src/components/Footer.astro`, `src/components/react/MobileMenu.tsx`
 
 - [ ] **Step 1: Write MobileMenu React island**
@@ -850,7 +915,14 @@ export default function MobileMenu({ links, currentPath }: Props) {
         aria-label={open ? 'Close menu' : 'Open menu'}
         aria-expanded={open}
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           {open ? (
             <>
               <line x1="18" y1="6" x2="6" y2="18" />
@@ -910,11 +982,13 @@ const currentPath = Astro.url.pathname;
   <div class="container nav-container">
     <a href="/" class="nav-brand">Jelly</a>
     <div class="nav-links">
-      {links.map(({ href, label }) => (
-        <a href={href} class:list={[{ active: currentPath.startsWith(href) }]}>
-          {label}
-        </a>
-      ))}
+      {
+        links.map(({ href, label }) => (
+          <a href={href} class:list={[{ active: currentPath.startsWith(href) }]}>
+            {label}
+          </a>
+        ))
+      }
       <ThemeToggle client:load />
     </div>
     <div class="nav-mobile">
@@ -975,8 +1049,12 @@ const currentPath = Astro.url.pathname;
   }
 
   @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .nav-mobile { display: flex; }
+    .nav-links {
+      display: none;
+    }
+    .nav-mobile {
+      display: flex;
+    }
   }
 </style>
 ```
@@ -1037,7 +1115,7 @@ const { title, description = 'Technical musings, random thoughts, and other stuf
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.css" />
     <title>{title} | Jelly</title>
     <script is:inline>
-      (function() {
+      (function () {
         const stored = localStorage.getItem('theme');
         if (stored === 'dark' || stored === 'light') {
           document.documentElement.setAttribute('data-theme', stored);
@@ -1064,7 +1142,7 @@ const { title, description = 'Technical musings, random thoughts, and other stuf
             }
           });
         },
-        { threshold: 0.1 }
+        { threshold: 0.1 },
       );
       document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
     </script>
@@ -1094,6 +1172,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 - [ ] **Step 6: Verify dev server runs**
 
 Run:
+
 ```bash
 npm run dev
 ```
@@ -1112,6 +1191,7 @@ git commit -m "feat: add base layout, navigation, footer, mobile menu"
 ## Task 5: Content Collections & Utility Helpers (TDD)
 
 **Files:**
+
 - Create: `src/content.config.ts`, `src/utils/content.ts`, `src/utils/date.ts`
 - Create: `src/utils/__tests__/content.test.ts`, `src/utils/__tests__/date.test.ts`
 - Create: sample content files
@@ -1315,10 +1395,10 @@ Write `src/content/blog/hello-world.mdx`:
 
 ```mdx
 ---
-title: "Hello World"
+title: 'Hello World'
 date: 2023-02-21
-tags: ["meta"]
-excerpt: "The obligatory first post. Why I started this blog and what to expect."
+tags: ['meta']
+excerpt: 'The obligatory first post. Why I started this blog and what to expect.'
 pinned: true
 ---
 
@@ -1343,12 +1423,12 @@ Write `src/content/reading/sample.mdx`:
 
 ```mdx
 ---
-title: "Notes on Designing Data-Intensive Applications"
+title: 'Notes on Designing Data-Intensive Applications'
 date: 2024-01-15
-bookTitle: "Designing Data-Intensive Applications"
-bookAuthor: "Martin Kleppmann"
-tags: ["distributed-systems", "databases"]
-excerpt: "Key takeaways from DDIA, focusing on replication and partitioning."
+bookTitle: 'Designing Data-Intensive Applications'
+bookAuthor: 'Martin Kleppmann'
+tags: ['distributed-systems', 'databases']
+excerpt: 'Key takeaways from DDIA, focusing on replication and partitioning.'
 ---
 
 # Notes on Designing Data-Intensive Applications
@@ -1368,9 +1448,9 @@ Write `src/content/travel/sample.mdx`:
 
 ```mdx
 ---
-title: "Weekend in Kyoto"
+title: 'Weekend in Kyoto'
 date: 2024-03-10
-tags: ["japan", "travel"]
+tags: ['japan', 'travel']
 excerpt: "A brief visit to Kyoto's temples and gardens."
 ---
 
@@ -1391,11 +1471,11 @@ Write `src/content/slides/sample.mdx`:
 
 ```mdx
 ---
-title: "Intro to Distributed Systems"
+title: 'Intro to Distributed Systems'
 date: 2024-06-01
-slug: "intro-distributed-systems"
-tags: ["talk", "distributed-systems"]
-excerpt: "A beginner-friendly overview of distributed systems concepts."
+slug: 'intro-distributed-systems'
+tags: ['talk', 'distributed-systems']
+excerpt: 'A beginner-friendly overview of distributed systems concepts.'
 ---
 ```
 
@@ -1423,6 +1503,7 @@ git commit -m "feat: add content collections, date/content utils with tests, sam
 ## Task 6: Shared UI Components — Cards & Listing Layout
 
 **Files:**
+
 - Create: `src/components/Card.astro`, `src/components/FeaturedPost.astro`, `src/components/CardGrid.astro`, `src/layouts/ListingLayout.astro`
 
 - [ ] **Step 1: Write Card component**
@@ -1586,6 +1667,7 @@ Write `src/components/CardGrid.astro`:
 
 ```astro
 ---
+
 ---
 
 <div class="card-grid">
@@ -1675,6 +1757,7 @@ git commit -m "feat: add Card, FeaturedPost, CardGrid components and ListingLayo
 ## Task 7: Blog Pages
 
 **Files:**
+
 - Create: `src/pages/blog/index.astro`, `src/pages/blog/[slug].astro`
 - Create: `src/layouts/PostLayout.astro`, `src/components/PostHeader.astro`, `src/components/PostNav.astro`, `src/components/TableOfContents.astro`
 
@@ -1699,19 +1782,23 @@ const { title, date, tags = [], bookTitle, bookAuthor, heroImage } = Astro.props
 ---
 
 <header class="post-header">
-  {tags.length > 0 && (
-    <div class="post-tags">
-      {tags.map((tag) => (
-        <span class="tag">{tag}</span>
-      ))}
-    </div>
-  )}
+  {
+    tags.length > 0 && (
+      <div class="post-tags">
+        {tags.map((tag) => (
+          <span class="tag">{tag}</span>
+        ))}
+      </div>
+    )
+  }
   <h1>{title}</h1>
-  {bookTitle && (
-    <p class="book-info">
-      <em>{bookTitle}</em> by {bookAuthor}
-    </p>
-  )}
+  {
+    bookTitle && (
+      <p class="book-info">
+        <em>{bookTitle}</em> by {bookAuthor}
+      </p>
+    )
+  }
   <time>{formatDate(date)}</time>
   {heroImage && <img src={heroImage} alt="" class="hero-image" />}
 </header>
@@ -1777,26 +1864,28 @@ interface Props {
 const { prev, next } = Astro.props;
 ---
 
-{(prev || next) && (
-  <nav class="post-nav">
-    <div>
-      {prev && (
-        <a href={`${prev.basePath}/${prev.slug}`} class="post-nav-link prev">
-          <span class="post-nav-label">Previous</span>
-          <span class="post-nav-title">{prev.title}</span>
-        </a>
-      )}
-    </div>
-    <div>
-      {next && (
-        <a href={`${next.basePath}/${next.slug}`} class="post-nav-link next">
-          <span class="post-nav-label">Next</span>
-          <span class="post-nav-title">{next.title}</span>
-        </a>
-      )}
-    </div>
-  </nav>
-)}
+{
+  (prev || next) && (
+    <nav class="post-nav">
+      <div>
+        {prev && (
+          <a href={`${prev.basePath}/${prev.slug}`} class="post-nav-link prev">
+            <span class="post-nav-label">Previous</span>
+            <span class="post-nav-title">{prev.title}</span>
+          </a>
+        )}
+      </div>
+      <div>
+        {next && (
+          <a href={`${next.basePath}/${next.slug}`} class="post-nav-link next">
+            <span class="post-nav-label">Next</span>
+            <span class="post-nav-title">{next.title}</span>
+          </a>
+        )}
+      </div>
+    </nav>
+  )
+}
 
 <style>
   .post-nav {
@@ -1858,18 +1947,20 @@ const { headings } = Astro.props;
 const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
 ---
 
-{tocHeadings.length > 0 && (
-  <aside class="toc">
-    <p class="toc-title">On this page</p>
-    <ul>
-      {tocHeadings.map((h) => (
-        <li class:list={[{ depth3: h.depth === 3 }]}>
-          <a href={`#${h.slug}`}>{h.text}</a>
-        </li>
-      ))}
-    </ul>
-  </aside>
-)}
+{
+  tocHeadings.length > 0 && (
+    <aside class="toc">
+      <p class="toc-title">On this page</p>
+      <ul>
+        {tocHeadings.map((h) => (
+          <li class:list={[{ depth3: h.depth === 3 }]}>
+            <a href={`#${h.slug}`}>{h.text}</a>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  )
+}
 
 <style>
   .toc {
@@ -1914,7 +2005,9 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
   }
 
   @media (max-width: 1200px) {
-    .toc { display: none; }
+    .toc {
+      display: none;
+    }
   }
 </style>
 ```
@@ -2012,17 +2105,19 @@ const rest = sorted.filter((p) => p.id !== featured.id);
     tag={featured.data.tags?.[0]}
     excerpt={featured.data.excerpt}
   />
-  <div style="height: 1px; background: var(--border); margin-bottom: 2rem;" />
+  <div style="height: 1px; background: var(--border); margin-bottom: 2rem;"></div>
   <CardGrid>
-    {rest.map((post) => (
-      <Card
-        title={post.data.title}
-        href={`/blog/${post.id}`}
-        date={post.data.date}
-        tag={post.data.tags?.[0]}
-        excerpt={post.data.excerpt}
-      />
-    ))}
+    {
+      rest.map((post) => (
+        <Card
+          title={post.data.title}
+          href={`/blog/${post.id}`}
+          date={post.data.date}
+          tag={post.data.tags?.[0]}
+          excerpt={post.data.excerpt}
+        />
+      ))
+    }
   </CardGrid>
 </ListingLayout>
 ```
@@ -2045,8 +2140,12 @@ export async function getStaticPaths() {
     params: { slug: post.id },
     props: {
       post,
-      prev: sorted[i + 1] ? { slug: sorted[i + 1].id, title: sorted[i + 1].data.title, basePath: '/blog' } : undefined,
-      next: sorted[i - 1] ? { slug: sorted[i - 1].id, title: sorted[i - 1].data.title, basePath: '/blog' } : undefined,
+      prev: sorted[i + 1]
+        ? { slug: sorted[i + 1].id, title: sorted[i + 1].data.title, basePath: '/blog' }
+        : undefined,
+      next: sorted[i - 1]
+        ? { slug: sorted[i - 1].id, title: sorted[i - 1].data.title, basePath: '/blog' }
+        : undefined,
     },
   }));
 }
@@ -2086,6 +2185,7 @@ git commit -m "feat: add blog listing and post pages with TOC, prev/next nav"
 ## Task 8: MDX Rich Media Components
 
 **Files:**
+
 - Create: `src/components/YouTube.astro`, `src/components/Callout.astro`, `src/components/CodeBlock.astro`, `src/components/react/Lightbox.tsx`
 
 - [ ] **Step 1: Write YouTube embed component**
@@ -2108,8 +2208,7 @@ const { id, title = 'YouTube video' } = Astro.props;
     title={title}
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen
-    loading="lazy"
-  />
+    loading="lazy"></iframe>
 </div>
 
 <style>
@@ -2216,12 +2315,31 @@ const { filename } = Astro.props;
     <slot />
   </div>
   <button class="code-block-copy" aria-label="Copy code" data-copy>
-    <svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+    <svg
+      class="icon-copy"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
     </svg>
-    <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
-      <polyline points="20 6 9 17 4 12" />
+    <svg
+      class="icon-check"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      style="display:none"
+    >
+      <polyline points="20 6 9 17 4 12"></polyline>
     </svg>
   </button>
 </div>
@@ -2333,7 +2451,14 @@ export default function Lightbox() {
       aria-label={alt || 'Image preview'}
     >
       <button className="lightbox-close" onClick={close} aria-label="Close">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <line x1="18" y1="6" x2="6" y2="18" />
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
@@ -2470,6 +2595,7 @@ git commit -m "feat: add YouTube, Callout, CodeBlock, Lightbox MDX components"
 ## Task 9: Reading Notes & Travel Log Pages
 
 **Files:**
+
 - Create: `src/pages/reading/index.astro`, `src/pages/reading/[slug].astro`
 - Create: `src/pages/travel/index.astro`, `src/pages/travel/[slug].astro`
 
@@ -2500,17 +2626,19 @@ const rest = sorted.filter((p) => p.id !== featured.id);
     tag={featured.data.bookAuthor}
     excerpt={featured.data.excerpt}
   />
-  <div style="height: 1px; background: var(--border); margin-bottom: 2rem;" />
+  <div style="height: 1px; background: var(--border); margin-bottom: 2rem;"></div>
   <CardGrid>
-    {rest.map((post) => (
-      <Card
-        title={post.data.title}
-        href={`/reading/${post.id}`}
-        date={post.data.date}
-        tag={post.data.bookAuthor}
-        excerpt={post.data.excerpt}
-      />
-    ))}
+    {
+      rest.map((post) => (
+        <Card
+          title={post.data.title}
+          href={`/reading/${post.id}`}
+          date={post.data.date}
+          tag={post.data.bookAuthor}
+          excerpt={post.data.excerpt}
+        />
+      ))
+    }
   </CardGrid>
 </ListingLayout>
 ```
@@ -2532,8 +2660,12 @@ export async function getStaticPaths() {
     params: { slug: post.id },
     props: {
       post,
-      prev: sorted[i + 1] ? { slug: sorted[i + 1].id, title: sorted[i + 1].data.title, basePath: '/reading' } : undefined,
-      next: sorted[i - 1] ? { slug: sorted[i - 1].id, title: sorted[i - 1].data.title, basePath: '/reading' } : undefined,
+      prev: sorted[i + 1]
+        ? { slug: sorted[i + 1].id, title: sorted[i + 1].data.title, basePath: '/reading' }
+        : undefined,
+      next: sorted[i - 1]
+        ? { slug: sorted[i - 1].id, title: sorted[i - 1].data.title, basePath: '/reading' }
+        : undefined,
     },
   }));
 }
@@ -2583,17 +2715,19 @@ const rest = sorted.filter((p) => p.id !== featured.id);
     tag={featured.data.tags?.[0]}
     excerpt={featured.data.excerpt}
   />
-  <div style="height: 1px; background: var(--border); margin-bottom: 2rem;" />
+  <div style="height: 1px; background: var(--border); margin-bottom: 2rem;"></div>
   <CardGrid>
-    {rest.map((post) => (
-      <Card
-        title={post.data.title}
-        href={`/travel/${post.id}`}
-        date={post.data.date}
-        tag={post.data.tags?.[0]}
-        excerpt={post.data.excerpt}
-      />
-    ))}
+    {
+      rest.map((post) => (
+        <Card
+          title={post.data.title}
+          href={`/travel/${post.id}`}
+          date={post.data.date}
+          tag={post.data.tags?.[0]}
+          excerpt={post.data.excerpt}
+        />
+      ))
+    }
   </CardGrid>
 </ListingLayout>
 ```
@@ -2615,8 +2749,12 @@ export async function getStaticPaths() {
     params: { slug: post.id },
     props: {
       post,
-      prev: sorted[i + 1] ? { slug: sorted[i + 1].id, title: sorted[i + 1].data.title, basePath: '/travel' } : undefined,
-      next: sorted[i - 1] ? { slug: sorted[i - 1].id, title: sorted[i - 1].data.title, basePath: '/travel' } : undefined,
+      prev: sorted[i + 1]
+        ? { slug: sorted[i + 1].id, title: sorted[i + 1].data.title, basePath: '/travel' }
+        : undefined,
+      next: sorted[i - 1]
+        ? { slug: sorted[i - 1].id, title: sorted[i - 1].data.title, basePath: '/travel' }
+        : undefined,
     },
   }));
 }
@@ -2656,6 +2794,7 @@ git commit -m "feat: add reading notes and travel log listing + post pages"
 ## Task 10: Homepage — Hero & Interactive Timeline CV
 
 **Files:**
+
 - Create: `src/components/react/Timeline.tsx`
 - Modify: `src/pages/index.astro`
 
@@ -2710,10 +2849,14 @@ export default function Timeline({ entries }: Props) {
       {entries.map((entry, i) => (
         <div
           key={i}
-          ref={(el) => { nodeRefs.current[i] = el; }}
+          ref={(el) => {
+            nodeRefs.current[i] = el;
+          }}
           className={`timeline-node scroll-reveal ${i % 2 === 0 ? 'left' : 'right'}`}
           onClick={() => toggle(i)}
-          onKeyDown={(e) => { if (e.key === 'Enter') toggle(i); }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') toggle(i);
+          }}
           role="button"
           tabIndex={0}
           aria-expanded={expandedIndex === i}
@@ -2723,9 +2866,7 @@ export default function Timeline({ entries }: Props) {
             <span className="timeline-year">{entry.year}</span>
             <h3 className="timeline-title">{entry.title}</h3>
             <p className="timeline-subtitle">{entry.subtitle}</p>
-            {expandedIndex === i && (
-              <p className="timeline-details">{entry.details}</p>
-            )}
+            {expandedIndex === i && <p className="timeline-details">{entry.details}</p>}
           </div>
         </div>
       ))}
@@ -2859,7 +3000,8 @@ const timelineEntries = [
     year: '2020',
     title: 'Started University',
     subtitle: 'Computer Science',
-    details: 'Began studying computer science, diving into algorithms, systems programming, and distributed systems.',
+    details:
+      'Began studying computer science, diving into algorithms, systems programming, and distributed systems.',
   },
   {
     year: '2022',
@@ -2882,7 +3024,10 @@ const timelineEntries = [
 ];
 ---
 
-<BaseLayout title="Home" description="Jelly's personal website — technical musings, random thoughts, and other stuff.">
+<BaseLayout
+  title="Home"
+  description="Jelly's personal website — technical musings, random thoughts, and other stuff."
+>
   <div class="container">
     <section class="hero animate-in">
       <h1 class="hero-name">Jelly</h1>
@@ -2947,6 +3092,7 @@ git commit -m "feat: add homepage with hero section and interactive timeline CV"
 ## Task 11: About Page
 
 **Files:**
+
 - Create: `src/pages/about.astro`
 
 - [ ] **Step 1: Write about page**
@@ -2964,18 +3110,25 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <h1>About Me</h1>
       <div class="prose">
         <p>
-          Hi, I'm <strong>Jelly</strong> (Zejun Zhao). I'm a software engineer interested in
-          systems programming, distributed systems, and the occasional deep dive into whatever
-          catches my attention.
+          Hi, I'm <strong>Jelly</strong> (Zejun Zhao). I'm a software engineer interested in systems programming,
+          distributed systems, and the occasional deep dive into whatever catches my attention.
         </p>
         <p>
-          This site is where I write about technical topics, share reading notes, and document
-          my travels. It's built with Astro and styled after the claude.ai aesthetic.
+          This site is where I write about technical topics, share reading notes, and document my
+          travels. It's built with Astro and styled after the claude.ai aesthetic.
         </p>
         <h2>Links</h2>
         <ul>
-          <li><a href="https://github.com/jellllly420" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="https://www.linkedin.com/in/zejun-zhao-1b1463267/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li>
+            <a href="https://github.com/jellllly420" target="_blank" rel="noopener">GitHub</a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/zejun-zhao-1b1463267/"
+              target="_blank"
+              rel="noopener">LinkedIn</a
+            >
+          </li>
           <li><a href="mailto:jelly.zhao.42@gmail.com">Email</a></li>
         </ul>
       </div>
@@ -3013,6 +3166,7 @@ git commit -m "feat: add about page with bio and social links"
 ## Task 12: Slides Integration — Slidev Theme, Build Script, Gallery
 
 **Files:**
+
 - Create: `slidev-theme/package.json`, `slidev-theme/styles/index.ts`, `slidev-theme/styles/base.css`, `slidev-theme/layouts/cover.vue`, `slidev-theme/layouts/default.vue`
 - Create: `slides/sample/slides.md`, `scripts/build-slides.sh`
 - Create: `src/pages/slides/index.astro`
@@ -3047,15 +3201,15 @@ Write `slidev-theme/styles/base.css`:
 
 ```css
 :root {
-  --slidev-theme-primary: #C4642D;
-  --slidev-theme-bg: #FAF9F6;
-  --slidev-theme-text: #1A1A1A;
+  --slidev-theme-primary: #c4642d;
+  --slidev-theme-bg: #faf9f6;
+  --slidev-theme-text: #1a1a1a;
 }
 
 .dark {
-  --slidev-theme-primary: #E07A3A;
-  --slidev-theme-bg: #1A1A1A;
-  --slidev-theme-text: #ECECEA;
+  --slidev-theme-primary: #e07a3a;
+  --slidev-theme-bg: #1a1a1a;
+  --slidev-theme-text: #ececea;
 }
 
 .slidev-layout {
@@ -3206,6 +3360,7 @@ Run: `chmod +x scripts/build-slides.sh`
 - [ ] **Step 4: Install Slidev**
 
 Run:
+
 ```bash
 npm install -D @slidev/cli @slidev/theme-default
 ```
@@ -3228,15 +3383,17 @@ const sorted = sortByDate(decks);
 
 <ListingLayout title="Slides" tagline="Talks and presentations.">
   <CardGrid>
-    {sorted.map((deck) => (
-      <Card
-        title={deck.data.title}
-        href={`/slides/${deck.data.slug}/`}
-        date={deck.data.date}
-        tag={deck.data.tags?.[0]}
-        excerpt={deck.data.excerpt}
-      />
-    ))}
+    {
+      sorted.map((deck) => (
+        <Card
+          title={deck.data.title}
+          href={`/slides/${deck.data.slug}/`}
+          date={deck.data.date}
+          tag={deck.data.tags?.[0]}
+          excerpt={deck.data.excerpt}
+        />
+      ))
+    }
   </CardGrid>
 </ListingLayout>
 ```
@@ -3255,6 +3412,7 @@ Note: Update the existing `"build"` script to chain the slides build first.
 - [ ] **Step 7: Test slide build**
 
 Run:
+
 ```bash
 npm run build:slides
 ```
@@ -3279,6 +3437,7 @@ git commit -m "feat: add Slidev integration with custom theme, build script, gal
 ## Task 13: GitHub Actions CI/CD
 
 **Files:**
+
 - Create: `.github/workflows/deploy.yml`
 
 - [ ] **Step 1: Write deploy workflow**
@@ -3368,6 +3527,7 @@ git commit -m "ci: add GitHub Actions workflow for build, test, and deploy"
 ## Task 14: E2E Tests
 
 **Files:**
+
 - Create: `tests/e2e/navigation.spec.ts`, `tests/e2e/theme.spec.ts`, `tests/e2e/blog.spec.ts`, `tests/e2e/homepage.spec.ts`
 
 - [ ] **Step 1: Write navigation E2E test**
@@ -3502,6 +3662,7 @@ test.describe('Homepage', () => {
 - [ ] **Step 5: Build the site for E2E testing**
 
 Run:
+
 ```bash
 npm run build
 ```
@@ -3509,6 +3670,7 @@ npm run build
 - [ ] **Step 6: Run E2E tests**
 
 Run:
+
 ```bash
 npx playwright test
 ```
@@ -3529,6 +3691,7 @@ git commit -m "test: add E2E tests for navigation, theme, blog, homepage"
 - [ ] **Step 1: Run full lint**
 
 Run:
+
 ```bash
 npm run lint
 ```
@@ -3538,6 +3701,7 @@ Fix any issues.
 - [ ] **Step 2: Run type check**
 
 Run:
+
 ```bash
 npm run check
 ```
@@ -3547,6 +3711,7 @@ Fix any issues.
 - [ ] **Step 3: Run all unit tests**
 
 Run:
+
 ```bash
 npm test
 ```
@@ -3556,6 +3721,7 @@ Expected: All pass.
 - [ ] **Step 4: Run full build + E2E tests**
 
 Run:
+
 ```bash
 npm run build && npx playwright test
 ```
@@ -3572,6 +3738,7 @@ git commit -m "chore: lint fixes and cleanup"
 - [ ] **Step 6: Verify dev server runs cleanly**
 
 Run:
+
 ```bash
 npm run dev
 ```

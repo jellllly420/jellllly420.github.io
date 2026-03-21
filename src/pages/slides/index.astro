@@ -11,14 +11,16 @@ const sorted = sortByDate(decks);
 
 <ListingLayout title="Slides" tagline="Talks and presentations.">
   <CardGrid>
-    {sorted.map((deck) => (
-      <Card
-        title={deck.data.title}
-        href={`/slides/${deck.data.slug}/`}
-        date={deck.data.date}
-        tag={deck.data.tags?.[0]}
-        excerpt={deck.data.excerpt}
-      />
-    ))}
+    {
+      sorted.map((deck) => (
+        <Card
+          title={deck.data.title}
+          href={`/slides/${deck.data.slug}/`}
+          date={deck.data.date}
+          tag={deck.data.tags?.[0]}
+          excerpt={deck.data.excerpt}
+        />
+      ))
+    }
   </CardGrid>
 </ListingLayout>

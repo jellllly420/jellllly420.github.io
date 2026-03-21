@@ -13,28 +13,30 @@ interface Props {
 const { prev, next } = Astro.props;
 ---
 
-{(prev || next) && (
-  <nav class="post-nav" aria-label="Post navigation">
-    <div class="post-nav-grid">
-      <div class="post-nav-item post-nav-prev">
-        {prev && (
-          <a href={`${prev.basePath}/${prev.slug}`}>
-            <span class="post-nav-label">Previous</span>
-            <span class="post-nav-title">{prev.title}</span>
-          </a>
-        )}
+{
+  (prev || next) && (
+    <nav class="post-nav" aria-label="Post navigation">
+      <div class="post-nav-grid">
+        <div class="post-nav-item post-nav-prev">
+          {prev && (
+            <a href={`${prev.basePath}/${prev.slug}`}>
+              <span class="post-nav-label">Previous</span>
+              <span class="post-nav-title">{prev.title}</span>
+            </a>
+          )}
+        </div>
+        <div class="post-nav-item post-nav-next">
+          {next && (
+            <a href={`${next.basePath}/${next.slug}`}>
+              <span class="post-nav-label">Next</span>
+              <span class="post-nav-title">{next.title}</span>
+            </a>
+          )}
+        </div>
       </div>
-      <div class="post-nav-item post-nav-next">
-        {next && (
-          <a href={`${next.basePath}/${next.slug}`}>
-            <span class="post-nav-label">Next</span>
-            <span class="post-nav-title">{next.title}</span>
-          </a>
-        )}
-      </div>
-    </div>
-  </nav>
-)}
+    </nav>
+  )
+}
 
 <style>
   .post-nav {

@@ -1,13 +1,13 @@
 :root {
-  --slidev-theme-primary: #C4642D;
-  --slidev-theme-bg: #FAF9F6;
-  --slidev-theme-text: #1A1A1A;
+  --slidev-theme-primary: #c4642d;
+  --slidev-theme-bg: #faf9f6;
+  --slidev-theme-text: #1a1a1a;
 }
 
 .dark {
-  --slidev-theme-primary: #E07A3A;
-  --slidev-theme-bg: #1A1A1A;
-  --slidev-theme-text: #ECECEA;
+  --slidev-theme-primary: #e07a3a;
+  --slidev-theme-bg: #1a1a1a;
+  --slidev-theme-text: #ececea;
 }
 
 .slidev-layout {

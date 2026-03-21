@@ -22,20 +22,20 @@ A personal website hosted on GitHub Pages, styled after the claude.ai / Anthropi
 
 ### Key Dependencies
 
-| Package | Purpose |
-|---|---|
-| `astro` | Static site generator |
-| `@astrojs/react` | React island integration |
-| `@astrojs/mdx` | MDX content support |
-| `@astrojs/sitemap` | Auto-generated sitemap |
-| `remark-math` + `rehype-katex` | LaTeX math rendering |
-| `rehype-mermaid` | Diagram rendering (build-time SVG) |
-| `shiki` | Code syntax highlighting (Astro built-in) |
-| `slidev` | Slide deck authoring and static export |
-| `vitest` | Unit testing |
-| `playwright` | E2E testing |
-| `eslint` | Code linting |
-| `prettier` | Code formatting |
+| Package                        | Purpose                                   |
+| ------------------------------ | ----------------------------------------- |
+| `astro`                        | Static site generator                     |
+| `@astrojs/react`               | React island integration                  |
+| `@astrojs/mdx`                 | MDX content support                       |
+| `@astrojs/sitemap`             | Auto-generated sitemap                    |
+| `remark-math` + `rehype-katex` | LaTeX math rendering                      |
+| `rehype-mermaid`               | Diagram rendering (build-time SVG)        |
+| `shiki`                        | Code syntax highlighting (Astro built-in) |
+| `slidev`                       | Slide deck authoring and static export    |
+| `vitest`                       | Unit testing                              |
+| `playwright`                   | E2E testing                               |
+| `eslint`                       | Code linting                              |
+| `prettier`                     | Code formatting                           |
 
 ### Project Structure
 
@@ -147,25 +147,25 @@ excerpt: string (optional)
 
 **Light mode (default warm):**
 
-| Token | Value | Usage |
-|---|---|---|
-| `--bg` | `#FAF9F6` | Page background |
-| `--surface` | `#FFFFFF` | Content areas (not used for cards) |
-| `--text` | `#1A1A1A` | Primary text |
-| `--text-muted` | `#6B6560` | Secondary text, dates |
-| `--accent` | `#C4642D` | Links, highlights, primary accent |
-| `--border` | `#E8E2D9` | Dividers, section separators |
+| Token          | Value     | Usage                              |
+| -------------- | --------- | ---------------------------------- |
+| `--bg`         | `#FAF9F6` | Page background                    |
+| `--surface`    | `#FFFFFF` | Content areas (not used for cards) |
+| `--text`       | `#1A1A1A` | Primary text                       |
+| `--text-muted` | `#6B6560` | Secondary text, dates              |
+| `--accent`     | `#C4642D` | Links, highlights, primary accent  |
+| `--border`     | `#E8E2D9` | Dividers, section separators       |
 
 **Dark mode:**
 
-| Token | Value | Usage |
-|---|---|---|
-| `--bg` | `#1A1A1A` | Page background |
-| `--surface` | `#2A2A28` | Content areas (not used for cards) |
-| `--text` | `#ECECEA` | Primary text |
-| `--text-muted` | `#A8A29E` | Secondary text, dates |
-| `--accent` | `#E07A3A` | Links, highlights, primary accent |
-| `--border` | `#333330` | Dividers, section separators |
+| Token          | Value     | Usage                              |
+| -------------- | --------- | ---------------------------------- |
+| `--bg`         | `#1A1A1A` | Page background                    |
+| `--surface`    | `#2A2A28` | Content areas (not used for cards) |
+| `--text`       | `#ECECEA` | Primary text                       |
+| `--text-muted` | `#A8A29E` | Secondary text, dates              |
+| `--accent`     | `#E07A3A` | Links, highlights, primary accent  |
+| `--border`     | `#333330` | Dividers, section separators       |
 
 ### Theme Switching
 

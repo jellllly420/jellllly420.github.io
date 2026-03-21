@@ -9,5 +9,5 @@ export function sortByDate<T extends HasDate>(posts: T[]): T[] {
 export function getFeaturedPost<T extends HasDate>(posts: T[]): T {
   const pinned = posts.find((p) => p.data.pinned);
   if (pinned) return pinned;
-  return sortByDate(posts)[0];
+  return sortByDate(posts)[0]!;
 }

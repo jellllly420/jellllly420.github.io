@@ -3,9 +3,11 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "react",
+    "exactOptionalPropertyTypes": false,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }
-  }
+  },
+  "exclude": ["slidev-theme", "public/slides", "dist"]
 }

@@ -1,29 +1,18 @@
 {
-  "name": "Jekyll",
-  "image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
-  "onCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
-  "postCreateCommand": "bash .devcontainer/post-create.sh",
-  "customizations": {
-    "vscode": {
-      "settings": {
-        "terminal.integrated.defaultProfile.linux": "zsh"
-      },
-      "extensions": [
-        // Liquid tags auto-complete
-        "killalau.vscode-liquid-snippets",
-        // Liquid syntax highlighting and formatting
-        "Shopify.theme-check-vscode",
-        // Shell
-        "timonwong.shellcheck",
-        "mkhl.shfmt",
-        // Common formatter
-        "EditorConfig.EditorConfig",
-        "esbenp.prettier-vscode",
-        "stylelint.vscode-stylelint",
-        "yzhang.markdown-all-in-one",
-        // Git
-        "mhutchie.git-graph"
-      ]
-    }
-  }
+  "name": "jellllly420-github-io-dev",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "remoteUser": "node",
+  "containerEnv": {
+    "SHELL": "/bin/zsh"
+  },
+  "runArgs": ["-p=4321:4321"],
+  "mounts": [
+    "source=${localEnv:HOME}/.gitconfig,target=/home/node/.gitconfig,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.gnupg,target=/home/node/.gnupg,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.claude/settings.json,target=/home/node/.claude/settings.json,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.claude/skills,target=/home/node/.claude/skills,type=bind,consistency=cached"
+  ],
+  "postCreateCommand": "sudo chown -R node:node /home/node/.ssh && sudo chmod 700 /home/node/.ssh && sudo chmod 600 /home/node/.ssh/* 2>/dev/null; sudo chown -R node:node /home/node/.gnupg && sudo chmod 700 /home/node/.gnupg; sudo mkdir -p /home/node/.claude && sudo chown -R node:node /home/node/.claude; curl -fsSL https://claude.ai/install.sh | bash; curl -LsSf https://astral.sh/uv/install.sh | sh; npm install -g typescript-language-server"
 }

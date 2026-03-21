@@ -10,8 +10,14 @@ export async function getStaticPaths() {
     params: { slug: post.id },
     props: {
       post,
-      prev: sorted[i + 1] ? { slug: sorted[i + 1].id, title: sorted[i + 1].data.title, basePath: '/travel' } : undefined,
-      next: sorted[i - 1] ? { slug: sorted[i - 1].id, title: sorted[i - 1].data.title, basePath: '/travel' } : undefined,
+      prev:
+        i + 1 < sorted.length
+          ? { slug: sorted[i + 1]!.id, title: sorted[i + 1]!.data.title, basePath: '/travel' }
+          : undefined,
+      next:
+        i - 1 >= 0
+          ? { slug: sorted[i - 1]!.id, title: sorted[i - 1]!.data.title, basePath: '/travel' }
+          : undefined,
     },
   }));
 }
